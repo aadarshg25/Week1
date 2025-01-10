@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class SumOfNumbersTwo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number;
+		number = sc.nextInt();
+        if (number < 1) {
+            System.out.println("Please enter a valid positive natural number.");
+			} else {
+            int Sum = (number * (number + 1)) / 2;
+            int forLoopSum = 0;
+            for (int i = 1; i <= number; i++) {
+                forLoopSum += i;
+			}
+			
+            if (Sum == forLoopSum) {
+                System.out.println("Both results are correct and result is : " +Sum);
+				} else {
+                System.out.println("The results do not match.");
+			}
+		}
+	}
+}
