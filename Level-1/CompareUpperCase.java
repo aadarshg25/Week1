@@ -9,7 +9,7 @@ public class CompareUpperCase {
             if (currentChar == ' ') {
                 newString += " ";
             } else if (currentChar >= 'a' && currentChar <= 'z') {
-                newString += (char) (currentChar - 32); // Clowercase to uppercase
+                newString += (char) (currentChar - 32); // lowercase to uppercase
             } else {
                 newString += currentChar;
             }

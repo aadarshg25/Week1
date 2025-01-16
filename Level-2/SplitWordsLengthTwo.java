@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public class SplitSentence {
+public class SplitWordsLengthTwo {
 
+    // User Defined Method
     public static String[] splitText(String text) {
         text = text.trim();
         String word = "";
@@ -29,39 +30,41 @@ public class SplitSentence {
         return words;
     }
 
-    public static int findLength(String text) {
+    public static int getLength(String str) {
         int length = 0;
-        for (char c : text.toCharArray()) {
+
+        for (char ch : str.toCharArray()) {
             length++;
         }
+
         return length;
     }
 
-    public static String[][] wordsWithLengths(String[] words) {
-        String[][] result = new String[words.length][2];
+    // Method to generate a 2D array containing words and their corresponding
+    // lengths
+    public static String[][] getWordLengthArray(String[] words) {
+        String[][] wordLengthArray = new String[words.length][2];
 
         for (int i = 0; i < words.length; i++) {
-            result[i][0] = words[i];
-            result[i][1] = String.valueOf(findLength(words[i]));
+            wordLengthArray[i][0] = words[i];
+            wordLengthArray[i][1] = String.valueOf(getLength(words[i]));
         }
 
-        return result;
+        return wordLengthArray;
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter a sentence: ");
-        String inputText = input.nextLine();
+        System.out.print("Enter the Sentence : ");
+        String string = input.nextLine();
 
-        String[] words = splitText(inputText);
-        String[][] wordLengths = wordsWithLengths(words);
+        String[] words = splitText(string);
 
-        System.out.println("Considering space as delimeter");
-        System.out.println("Word \t\tLength");
-        System.out.println("-------------------");
-        for (String[] wordLength : wordLengths) {
-            System.out.println(wordLength[0] + " \t\t" + Integer.parseInt(wordLength[1]));
+        String[][] wordLengthArray = getWordLengthArray(words);
+
+        for (int i = 0; i < wordLengthArray.length; i++) {
+            System.out.println(wordLengthArray[i][0] + "\t" + Integer.parseInt(wordLengthArray[i][1]));
         }
 
         input.close();
